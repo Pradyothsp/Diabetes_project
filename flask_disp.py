@@ -27,7 +27,7 @@ def do():
         <input type="text" id="field7" name="DiabetesPedigreeFunction" /><br><br>
         <label for="field8">Age:</label>
         <input type="text" id="field8" name="Age" /><br><br>
-        <input type=button value=submit />
+        <input type=submit value=submit />
     </form>
     '''
 
@@ -41,11 +41,10 @@ def do():
         DiabetesPedigreeFunction = float(request.form['DiabetesPedigreeFunction'])
         Age = float(request.form['Age'])
 
-        a = model.main(Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age)
-        print(a)
-        html = html + a
-
-
+        knn_, logreg_, tree_, rf_, gb_, svc_ = model.main(Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age)
+        
+        html = html + knn_ + '<br />' + logreg_ + '<br />' + tree_ + '<br />' + rf_ + '<br />' + gb_ + '<br />' + svc_
+        
     return html
 
 if __name__ == "__main__":

@@ -124,8 +124,10 @@ def main(Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, Diabe
     gb_ = print_in_format("Gradient Boosting", gb_predection)
     svc_ = print_in_format("SVM", svc_predection)
 
-    a = knn_+'\n'+logreg_+'\n'+tree_+'\n'+rf_+'\n'+gb_+'\n'+svc_
+    # a = knn_+'\n'+logreg_+'\n'+tree_+'\n'+rf_+'\n'+gb_+'\n'+svc_
+
     
-    return a
+    # return "{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n".format(knn_, logreg_, tree_, rf_, gb_, svc_)
+    return knn_, logreg_, tree_, rf_, gb_, svc_
 
 # main()
