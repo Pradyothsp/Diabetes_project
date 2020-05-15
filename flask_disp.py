@@ -8,11 +8,11 @@ app = Flask(__name__)
 def do():
     html = '''
     <!doctype html>
-    <title>DIABETES PROJECT</title>
-    <h2>Please input parameters</h2>
+    <title>DIABETES PREDICTION</title>
+    <h2>Please Input Parameters of the Person</h2>
     <style>
     body {
-        background-image: url('background_image/photo.jpg');
+        background-image: url('background_image/doctor.jpg');
         background-repeat: no-repeat;
         background-attachment: fixed; 
         background-size: 100% 100%;
