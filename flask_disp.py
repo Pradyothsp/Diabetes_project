@@ -1,4 +1,4 @@
-from flask import Flask, request, redirect, flash
+from flask import Flask, request, redirect, flash, send_file
 import model
 
 app = Flask(__name__)
@@ -10,6 +10,15 @@ def do():
     <!doctype html>
     <title>DIABETES PROJECT</title>
     <h2>Please input parameters</h2>
+    <style>
+    body {
+        background-image: url('background_image/photo.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed; 
+        background-size: 100% 100%;
+    }
+    </style>
+    <body>
     <form method=POST enctype=multipart/form-data action='/'>
         <label for="field1">Pregnancies:</label>
         <input type="text" id="field1" name="Pregnancies" /><br><br>
@@ -28,6 +37,7 @@ def do():
         <label for="field8">Age:</label>
         <input type="text" id="field8" name="Age" /><br><br>
         <input type=submit value=submit />
+    </body>
     </form>
     '''
 
@@ -46,6 +56,11 @@ def do():
         html = html + knn_ + '<br />' + logreg_ + '<br />' + tree_ + '<br />' + rf_ + '<br />' + gb_ + '<br />' + svc_
         
     return html
+
+@app.route('/background_image/<name>')
+def run_detector(name):
+    return send_file('background_image/'+name)
+
 
 if __name__ == "__main__":
     app.run()
